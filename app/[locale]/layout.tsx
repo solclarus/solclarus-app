@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 import { notFound } from "next/navigation";
+import { Footer } from "@/components/footer";
+import { IslandMenu } from "@/components/island-menu";
 import { ThemeProvider } from "@/components/theme-provider";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
@@ -39,7 +41,11 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <div className="min-h-dvh">
+              <main className="mx-auto my-40 max-w-2xl px-6">{children}</main>
+              <IslandMenu />
+              <Footer />
+            </div>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
