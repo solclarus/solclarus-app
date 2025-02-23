@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { getArticleBySlug, getArticles } from "@/lib/newt";
+import { getArticleBySlug } from "@/lib/newt";
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown";
 
@@ -11,14 +11,6 @@ type ArticlePageProps = {
     slug: string;
   }>;
 };
-
-export async function generateStaticParams() {
-  const articles = await getArticles();
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
-}
-export const dynamicParams = false;
 
 export async function generateMetadata({
   params,

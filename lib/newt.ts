@@ -2,11 +2,12 @@ import "server-only";
 
 import type { Article } from "@/types/article";
 import { cache } from "react";
+import { env } from "@/env";
 import { createClient } from "newt-client-js";
 
 const client = createClient({
-  spaceUid: process.env.NEWT_SPACE_UID + "",
-  token: process.env.NEWT_CDN_API_TOKEN + "",
+  spaceUid: env.NEXT_PUBLIC_NEWT_SPACE_UID + "",
+  token: env.NEXT_PUBLIC_NEWT_CDN_API_TOKEN + "",
   apiType: "cdn",
 });
 
