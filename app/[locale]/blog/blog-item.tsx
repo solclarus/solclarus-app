@@ -7,7 +7,7 @@ export function ArticleItem({ article }: { article: Article }) {
   return (
     <div className="relative p-4">
       <h2 className="truncate text-lg font-bold">
-        <Link href={`/article/${article.slug}`}>
+        <Link href={`/blog/${article.slug}`}>
           {article.title}
           <span className="absolute inset-0"></span>
         </Link>
