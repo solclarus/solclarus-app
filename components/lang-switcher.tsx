@@ -9,17 +9,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { usePathname } from "@/i18n/routing";
-import { Globe } from "lucide-react";
+import { useLocale } from "next-intl";
 import { CircleFlagLanguage } from "react-circle-flags";
 
 export function LangSwitcher() {
   const pathname = usePathname();
+  const locale = useLocale();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button className="rounded-full" variant="outline" size="icon">
-          <Globe className="h-[1.2rem] w-[1.2rem]" />
+          <CircleFlagLanguage languageCode={locale} height={24} width={24} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="*:cursor-pointer">
