@@ -4,11 +4,11 @@ import { type Locale } from "@/i18n/request";
 
 import { getWork } from "../lib";
 
-type PageProps = {
-  params: {
-    locale: string;
+type Props = {
+  params: Promise<{
+    locale: Locale;
     slug: string;
-  };
+  }>;
 };
 
 type MDXContent = {
@@ -16,14 +16,9 @@ type MDXContent = {
   metadata?: Record<string, unknown>;
 };
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
+export default async function Page({ params }: Props) {
   try {
-    const locale = (await params).locale as Locale;
-    const slug = (await params).slug;
+    const { locale, slug } = await params;
 
     const [mdxModule, workData] = await Promise.all([
       import(`@/content/${slug}/${locale}.mdx`) as Promise<MDXContent>,
@@ -56,10 +51,9 @@ export default async function Page({
   }
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { locale, slug } = params;
+// generateMetadata用の型を別途定義して使用
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
   const work = await getWork(slug);
 
   if (!work) {
@@ -68,6 +62,6 @@ export async function generateMetadata({
 
   return {
     title: work.title,
-    description: work.description[locale as Locale],
+    description: work.description[locale],
   };
 }
