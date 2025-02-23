@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "@/styles/globals.css";
 
+import type { Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { IslandMenu } from "@/components/island-menu";
@@ -25,7 +26,7 @@ export default async function LocaleLayout({
   params,
 }: LocaleLayoutProps) {
   const locale = (await params).locale;
-  if (!routing.locales.includes(locale as "en" | "ja")) {
+  if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
 
@@ -42,7 +43,7 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider messages={messages}>
             <div className="min-h-dvh">
-              <main className="mx-auto max-w-2xl px-6 md:px-0">{children}</main>
+              {children}
               <IslandMenu />
               <Footer />
             </div>

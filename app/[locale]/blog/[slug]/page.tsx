@@ -32,13 +32,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
+export default async function Page({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
   if (!article) return;
 
   return (
-    <main className="prose mt-40 dark:prose-invert">
+    <main className="prose mx-auto mt-40 max-w-2xl px-4 dark:prose-invert md:px-0">
       <h1>{article.title}</h1>
       <div className="not-prose mb-4 flex items-center gap-3">
         <Avatar className="rounded-full border">

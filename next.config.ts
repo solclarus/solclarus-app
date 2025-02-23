@@ -2,6 +2,7 @@ import { type NextConfig } from "next";
 
 import "./env";
 
+import createMDX from "@next/mdx";
 import createNextIntlPlugin from "next-intl/plugin";
 
 import { env } from "./env";
@@ -18,6 +19,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-export default withNextIntl(nextConfig);
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+});
+
+export default withNextIntl(withMDX(nextConfig));

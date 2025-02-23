@@ -7,7 +7,7 @@ export default function Home() {
   const t = useTranslations("Home");
 
   return (
-    <div className="flex flex-col items-center pt-10 md:items-start">
+    <main className="mx-auto flex max-w-2xl flex-col items-center px-4 pt-10 md:items-start md:px-0">
       <Avatar className="size-28 rounded-full border">
         <AvatarImage
           src={
@@ -28,6 +28,6 @@ export default function Home() {
         })}
       </p>
       <p className="text-sm text-gray-500">{url}</p>
-    </div>
+    </main>
   );
 }
