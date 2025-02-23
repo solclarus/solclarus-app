@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typographyPlugin from "@tailwindcss/typography";
 import animatePlugin from "tailwindcss-animate";
 
 export default {
@@ -59,5 +60,5 @@ export default {
       },
     },
   },
-  plugins: [animatePlugin],
+  plugins: [animatePlugin, typographyPlugin],
 } satisfies Config;
