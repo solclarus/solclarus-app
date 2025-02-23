@@ -1,5 +1,6 @@
 "use client";
 
+import type { Locale } from "@/i18n/request";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { useParams, usePathname } from "next/navigation";
@@ -15,7 +16,7 @@ type IslandMenuButtonProps = {
 
 export function IslandMenuButton({ href, icon }: IslandMenuButtonProps) {
   const pathname = usePathname();
-  const locale = useParams().locale as "en" | "ja";
+  const locale = useParams().locale as Locale;
   const IconSlot = Slot as LucideIcon;
 
   return (
