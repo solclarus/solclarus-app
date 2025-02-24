@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: `${env.NEWT_SPACE_UID}.assets.newt.so/v1`,
+        hostname: `${env.NEXT_PUBLIC_NEWT_SPACE_UID}.assets.newt.so/v1`,
       },
     ],
   },
