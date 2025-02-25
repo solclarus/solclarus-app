@@ -4,36 +4,41 @@ import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
 
-type Props = {
+type WorkItemProps = {
   work: Work;
   locale: Locale;
 };
 
-export function WorkItem({ work, locale }: Props) {
+export function WorkItem({ work, locale }: WorkItemProps) {
+  const { id, title, description, publishedAt } = work;
+
   return (
-    <div>
-      <Link href={`/${locale}/work/${work.id}`}>
+    <article className="group flex flex-col">
+      <Link href={`/${locale}/work/${id}`} className="block">
         <div className="relative aspect-video overflow-hidden rounded-lg">
           <Image
-            src={`/images/works/${work.id}.jpg`}
-            alt={work.title}
+            src={`/images/works/${id}.jpg`}
+            alt={title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 place-content-center bg-card/80 text-center opacity-0 transition-opacity hover:opacity-100">
-            <h2 className="text-xl font-bold">{work.title}</h2>
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/80 p-4 text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <h2 className="text-xl font-bold">{title}</h2>
             <p className="text-sm text-muted-foreground">
-              {work.description[locale]}
+              {description[locale]}
             </p>
           </div>
         </div>
       </Link>
       <div className="mt-3 flex w-full items-center justify-between">
-        <div className="font-bold">{work.title}</div>
-        <div className="text-muted-foreground">
-          {format(work.publishedAt, "MMM yyyy")}
-        </div>
+        <h2 className="font-bold">{title}</h2>
+        <time
+          className="text-muted-foreground"
+          dateTime={publishedAt.toString()}
+        >
+          {format(publishedAt, "MMM yyyy")}
+        </time>
       </div>
-    </div>
+    </article>
   );
 }

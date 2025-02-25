@@ -1,5 +1,6 @@
 "use client";
 
+import type { Locale } from "@/i18n/request";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,9 +13,14 @@ import { usePathname } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { CircleFlagLanguage } from "react-circle-flags";
 
+const AVAILABLE_LOCALES: { code: Locale; label: string }[] = [
+  { code: "ja", label: "日本語" },
+  { code: "en", label: "English" },
+];
+
 export function LangSwitcher() {
   const pathname = usePathname();
-  const locale = useLocale();
+  const locale = useLocale() as Locale;
 
   return (
     <DropdownMenu>
@@ -24,28 +30,21 @@ export function LangSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="*:cursor-pointer">
-        <DropdownMenuItem asChild>
-          <Link href={`/ja${pathname}`}>
-            <CircleFlagLanguage
-              languageCode={"ja"}
-              height={20}
-              width={20}
-              className="mr-2"
-            />
-            日本語
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href={`/en${pathname}`}>
-            <CircleFlagLanguage
-              languageCode={"en"}
-              height={20}
-              width={20}
-              className="mr-2"
-            />
-            English
-          </Link>
-        </DropdownMenuItem>
+        {AVAILABLE_LOCALES.map(({ code, label }) => {
+          return (
+            <DropdownMenuItem key={code} disabled={code === locale} asChild>
+              <Link href={`/${code}${pathname}`}>
+                <CircleFlagLanguage
+                  languageCode={code}
+                  height={20}
+                  width={20}
+                  className="mr-2"
+                />
+                {label}
+              </Link>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

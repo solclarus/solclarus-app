@@ -14,13 +14,10 @@ export function ThemeSwitcher() {
   }, []);
 
   function toggleTheme() {
-    const currentTheme = theme === "dark" ? "light" : "dark";
-    setTheme(currentTheme);
+    setTheme(theme === "dark" ? "light" : "dark");
   }
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <Button
@@ -29,11 +26,7 @@ export function ThemeSwitcher() {
       size="icon"
       className="rounded-full"
     >
-      {theme === "light" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
-      ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem]" />
-      )}
+      {theme === "light" ? <Sun /> : <Moon />}
     </Button>
   );
 }

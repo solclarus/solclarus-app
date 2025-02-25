@@ -5,8 +5,7 @@ export type Work = {
     en: string;
     ja: string;
   };
-  thumbnail: string;
-  publishedAt: string;
+  publishedAt: Date;
   tags: string[];
   links: {
     github?: string;

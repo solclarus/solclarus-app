@@ -3,11 +3,12 @@
 import type { Locale } from "@/i18n/request";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
+import { useLocale } from "next-intl";
 
 type IslandMenuButtonProps = {
   href: string;
@@ -16,21 +17,26 @@ type IslandMenuButtonProps = {
 
 export function IslandMenuButton({ href, icon }: IslandMenuButtonProps) {
   const pathname = usePathname();
-  const locale = useParams().locale as Locale;
+  const locale = useLocale() as Locale;
   const IconSlot = Slot as LucideIcon;
+
+  const isActive =
+    href === "/"
+      ? pathname === `/${locale}` || pathname === `/${locale}/`
+      : pathname.startsWith(`/${locale}${href}`);
 
   return (
     <Button
       asChild
       className={cn(
-        "rounded-full",
-        pathname === `/${locale}${href}` && "border bg-muted",
+        "rounded-full hover:bg-muted",
+        isActive && "border text-orange-500",
       )}
       variant="ghost"
       size="icon"
     >
       <Link href={href}>
-        <IconSlot className="h-[1.2rem] w-[1.2rem]">{icon}</IconSlot>
+        <IconSlot>{icon}</IconSlot>
       </Link>
     </Button>
   );
