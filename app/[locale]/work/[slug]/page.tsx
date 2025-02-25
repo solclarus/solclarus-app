@@ -1,10 +1,11 @@
 import { type Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { type Locale } from "@/i18n/request";
 
 import { getWork } from "../lib";
 
-type Props = {
+type WorkPageProps = {
   params: Promise<{
     locale: Locale;
     slug: string;
@@ -16,43 +17,48 @@ type MDXContent = {
   metadata?: Record<string, unknown>;
 };
 
-export default async function Page({ params }: Props) {
-  try {
-    const { locale, slug } = await params;
+export default async function WorkPage({ params }: WorkPageProps) {
+  const { locale, slug } = await params;
 
-    const [mdxModule, workData] = await Promise.all([
+  try {
+    const [mdxModule, work] = await Promise.all([
       import(`@/content/${slug}/${locale}.mdx`) as Promise<MDXContent>,
       getWork(slug),
     ]);
 
     const MDXContent = mdxModule.default;
 
-    if (!MDXContent || !workData) {
+    if (!MDXContent || !work) {
       notFound();
     }
 
-    return (
-      <article className="container py-8">
-        <header className="mb-8">
-          <h1 className="mb-4 text-4xl font-bold">{workData.title}</h1>
-          <p className="text-muted-foreground">
-            {workData.description[locale]}
-          </p>
-        </header>
+    const { id, title } = work;
 
-        <div className="prose max-w-none dark:prose-invert">
-          <MDXContent />
-        </div>
-      </article>
+    return (
+      <main>
+        <header>
+          <div className="not-prose relative mb-6 aspect-video overflow-hidden rounded-lg">
+            <Image
+              src={`/images/works/${id}.jpg`}
+              alt={title}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <h1>{title}</h1>
+        </header>
+        <MDXContent />
+      </main>
     );
   } catch (error) {
-    console.error("Error loading work page:", error);
+    console.error(`Error loading work page (${slug}):`, error);
     notFound();
   }
 }
 
-// generateMetadata用の型を別途定義して使用
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: WorkPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const work = await getWork(slug);
 

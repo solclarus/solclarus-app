@@ -3,11 +3,11 @@ import { type Locale } from "@/i18n/request";
 import { getWorks } from "./lib";
 import { WorkItem } from "./work-item";
 
-export default async function Page({
-  params,
-}: {
+type WorksPageProps = {
   params: Promise<{ locale: string }>;
-}) {
+};
+
+export default async function WorksPage({ params }: WorksPageProps) {
   const locale = (await params).locale as Locale;
   const works = await getWorks();
 

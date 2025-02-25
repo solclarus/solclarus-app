@@ -1,28 +1,27 @@
 import type { Work } from "@/types/work";
-import works from "@/data/works.json";
+import { works } from "@/data/works";
 
 export async function getWorks(): Promise<Work[]> {
   try {
-    if (!works.works || !Array.isArray(works.works)) {
-      throw new Error("Invalid works data structure");
-    }
-
-    return works.works;
+    return works;
   } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error loading works:", error.message);
-    } else {
-      console.error("Unknown error loading works");
-    }
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error loading works";
+
+    console.error(`Error loading works: ${errorMessage}`);
     return [];
   }
 }
 
 export async function getWork(slug: string): Promise<Work | undefined> {
-  const allWorks = await getWorks();
-  const work = allWorks.find((work) => work.id === slug);
+  try {
+    return works.find((work) => work.id === slug);
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
 
-  if (!work) return undefined;
+    console.error(`Error loading works "${slug}": ${errorMessage}`);
+  }
 
-  return { ...work };
+  return undefined;
 }
