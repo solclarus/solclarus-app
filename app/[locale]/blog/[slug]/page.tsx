@@ -30,7 +30,7 @@ export default async function Page({ params }: ArticlePageProps) {
   if (!article) return;
 
   return (
-    <main className="prose mx-auto mt-40 max-w-2xl px-4 dark:prose-invert md:px-0">
+    <main className="prose mx-auto mt-40 max-w-2xl px-4 md:px-0">
       <h1>{article.title}</h1>
       <div className="not-prose mb-4 flex items-center gap-3">
         <Avatar className="rounded-full border">
@@ -55,7 +55,7 @@ export default async function Page({ params }: ArticlePageProps) {
         })}
       </div>
       <Separator className="my-6" />
-      <article className="prose dark:prose-invert">
+      <article className="prose">
         <ReactMarkdown>{article.body}</ReactMarkdown>
       </article>
     </main>

@@ -1,0 +1,42 @@
+/* 春の桜 (Spring Blossom) テーマ - 調整版 */
+html[data-theme="spring-blossom"] {
+  /* カラーパレット 
+     * よりピンク〜ライラック系へ調整
+     * #FFF5F7 - hsl(348, 100%, 98%) - 桜の白
+     * #FCE4EC - hsl(340, 80%, 94%) - 薄い桜色
+     * #F8BBD0 - hsl(340, 80%, 85%) - 淡い桜色
+     * #F48FB1 - hsl(340, 82%, 76%) - 明るい桜色
+     * #EC407A - hsl(340, 82%, 59%) - 桜の花びら色
+     * #D81B60 - hsl(340, 77%, 48%) - 鮮やかな桜色
+     * #AD1457 - hsl(328, 79%, 38%) - 深い桜色
+     * #880E4F - hsl(328, 81%, 30%) - 紅梅色
+     */
+
+  --background: 348 100% 98%; /* 桜の白 */
+  --foreground: 328 81% 30%; /* 紅梅色 */
+
+  --card: 340 80% 94%; /* 薄い桜色 */
+  --card-foreground: 328 81% 30%;
+
+  --popover: 340 80% 94%;
+  --popover-foreground: 328 81% 30%;
+
+  --primary: 340 77% 48%; /* 鮮やかな桜色 */
+  --primary-foreground: 348 100% 98%;
+
+  --secondary: 340 80% 85%; /* 淡い桜色 */
+  --secondary-foreground: 328 81% 30%;
+
+  --muted: 340 82% 76%;
+  --muted-foreground: 328 79% 38%;
+
+  --accent: 340 82% 59%; /* 桜の花びら色 */
+  --accent-foreground: 348 100% 98%;
+
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 348 100% 98%;
+
+  --border: 340 80% 85%;
+  --input: 340 80% 85%;
+  --ring: 340 77% 48%;
+}

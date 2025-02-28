@@ -17,11 +17,7 @@ export function ArticleItem({ article }: { article: Article }) {
       </time>
       <div className="mt-3 space-x-1">
         {article.tags.map((tag) => {
-          return (
-            <Badge key={tag._id} variant={"outline"}>
-              {tag.name}
-            </Badge>
-          );
+          return <Badge key={tag._id}>{tag.name}</Badge>;
         })}
       </div>
     </div>
