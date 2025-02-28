@@ -29,10 +29,10 @@ export function IslandMenuButton({ href, icon }: IslandMenuButtonProps) {
     <Button
       asChild
       className={cn(
-        "rounded-full hover:bg-muted",
-        isActive && "border text-orange-500",
+        "rounded-full",
+        isActive && "border-2 border-accent text-accent",
       )}
-      variant="ghost"
+      variant="outline"
       size="icon"
     >
       <Link href={href}>

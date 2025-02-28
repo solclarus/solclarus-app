@@ -1,0 +1,19 @@
+@tailwind base;
+
+@import "./spring-blossom.css";
+@import "./summer-ocean.css";
+@import "./autumn-maple.css";
+@import "./winter-snow.css";
+
+/* @import "./starry-night.css";
+@import "./powder-snow.css";
+@import "./evergreen.css";
+@import "./autumn-leaf.css";
+@import "./desert-dusk.css"; */
+
+/* 共通設定 */
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

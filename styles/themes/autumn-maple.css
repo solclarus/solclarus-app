@@ -1,0 +1,42 @@
+/* 秋の紅葉 (Autumn Maple) テーマ - 調整版 */
+html[data-theme="autumn-maple"] {
+  /* カラーパレット 
+     * より赤系へ調整
+     * #FFF3E0 - hsl(37, 100%, 94%) - 秋の日差し色
+     * #FFE0B2 - hsl(36, 100%, 85%) - 銀杏色
+     * #FFCC80 - hsl(36, 100%, 75%) - イチョウの葉
+     * #FFA726 - hsl(36, 100%, 57%) - 橙色
+     * #FF7043 - hsl(14, 100%, 63%) - 鮮やかな紅葉色
+     * #E64A19 - hsl(14, 80%, 50%) - 赤い紅葉色
+     * #D84315 - hsl(14, 80%, 46%) - 深い紅葉色
+     * #BF360C - hsl(14, 88%, 40%) - 錆びた色
+     */
+
+  --background: 37 100% 94%; /* 秋の日差し色 */
+  --foreground: 14 88% 40%; /* 錆びた色 */
+
+  --card: 36 100% 85%; /* 銀杏色 */
+  --card-foreground: 14 88% 40%;
+
+  --popover: 36 100% 85%;
+  --popover-foreground: 14 88% 40%;
+
+  --primary: 14 80% 50%; /* 赤い紅葉色 */
+  --primary-foreground: 37 100% 94%;
+
+  --secondary: 36 100% 75%; /* イチョウの葉 */
+  --secondary-foreground: 14 88% 40%;
+
+  --muted: 36 100% 57%;
+  --muted-foreground: 14 80% 46%;
+
+  --accent: 14 100% 63%; /* 鮮やかな紅葉色 */
+  --accent-foreground: 37 100% 94%;
+
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 37 100% 94%;
+
+  --border: 36 100% 75%;
+  --input: 36 100% 75%;
+  --ring: 14 80% 50%;
+}

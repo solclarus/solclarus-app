@@ -38,7 +38,6 @@ export function LangSwitcher() {
                   languageCode={code}
                   height={20}
                   width={20}
-                  className="mr-2"
                 />
                 {label}
               </Link>
