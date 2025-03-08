@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./themes/index.css";
+@import "./themes/amber-dune.css";
+@import "./themes/moonstone-snowfield.css";
+@import "./themes/ruby-crater.css";
+@import "./themes/jade-forest.css";
+@import "./themes/sapphire-sky.css";
 
 @layer base {
   * {
@@ -10,5 +14,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
   }
 }

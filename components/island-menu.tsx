@@ -4,7 +4,7 @@ import { Book, Home, Rocket } from "lucide-react";
 import { IslandMenuButton } from "./island-menu-button";
 import { LangSwitcher } from "./lang-switcher";
 import { ScrollToTop } from "./scroll-to-top";
-import { ThemeSwitcher } from "./theme-switcher";
+import { ThemeSwitcher } from "./theme/theme-switcher";
 
 export function IslandMenu() {
   return (

@@ -1,0 +1,41 @@
+/* Amber Dunes テーマ */
+html[data-theme="amber-dune"] {
+  /* カラーパレット
+     * #fff6e6 - hsl(36, 100%, 95%) - 明るい琥珀砂
+     * #ffeacc - hsl(36, 100%, 90%) - 薄い琥珀色
+     * #ffd699 - hsl(36, 100%, 80%) - 琥珀の砂
+     * #ffb84d - hsl(36, 100%, 65%) - 鮮やかな琥珀
+     * #e69c22 - hsl(36, 75%, 52%) - 深い琥珀色
+     * #b37618 - hsl(36, 77%, 40%) - 濃い琥珀色
+     * #7a5110 - hsl(36, 77%, 27%) - 暗い琥珀色
+     * #402a08 - hsl(36, 77%, 14%) - 琥珀の深み
+     */
+
+  --background: 36 100% 95%; /* 明るい琥珀砂 */
+  --foreground: 36 77% 14%; /* 琥珀の深み */
+
+  --card: 36 100% 90%; /* 薄い琥珀色 */
+  --card-foreground: 36 77% 14%;
+
+  --popover: 36 100% 90%;
+  --popover-foreground: 36 77% 14%;
+
+  --primary: 36 75% 52%; /* 深い琥珀色 */
+  --primary-foreground: 36 100% 95%;
+
+  --secondary: 36 100% 65%; /* 鮮やかな琥珀 */
+  --secondary-foreground: 36 77% 14%;
+
+  --muted: 36 50% 90%;
+  --muted-foreground: 36 77% 27%;
+
+  --accent: 36 77% 40%; /* 濃い琥珀色 */
+  --accent-foreground: 36 100% 95%;
+
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 36 100% 95%;
+
+  --border: 36 100% 80%;
+  --input: 36 100% 80%;
+  --ring: 36 75% 52%;
+}

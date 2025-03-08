@@ -57,6 +57,160 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "hsl(var(--foreground))",
+            "--tw-prose-headings":
+              "hsl(var(--heading-color, var(--foreground)))",
+            "--tw-prose-lead": "hsl(var(--muted-foreground))",
+            "--tw-prose-links": "hsl(var(--link-color, var(--primary)))",
+            "--tw-prose-bold": "hsl(var(--foreground))",
+            "--tw-prose-counters": "hsl(var(--muted-foreground))",
+            "--tw-prose-bullets": "hsl(var(--muted-foreground))",
+            "--tw-prose-hr": "hsl(var(--border))",
+            "--tw-prose-quotes": "hsl(var(--foreground))",
+            "--tw-prose-quote-borders": "hsl(var(--border))",
+            "--tw-prose-captions": "hsl(var(--muted-foreground))",
+            "--tw-prose-code": "hsl(var(--foreground))",
+            "--tw-prose-pre-code": "hsl(var(--code-fg))",
+            "--tw-prose-pre-bg": "hsl(var(--code-bg))",
+            "--tw-prose-th-borders": "hsl(var(--border))",
+            "--tw-prose-td-borders": "hsl(var(--border))",
+
+            // オーバーライド
+            a: {
+              color: "hsl(var(--link-color, var(--primary)))",
+              textDecoration: "underline",
+              textUnderlineOffset: "2px",
+              fontWeight: "500",
+              transition: "color 0.2s",
+              "&:hover": {
+                color: "hsl(var(--link-hover, var(--primary)))",
+              },
+            },
+            "h1, h2, h3, h4, h5, h6": {
+              color: "hsl(var(--heading-color, var(--foreground)))",
+              marginTop: "2rem",
+              marginBottom: "1rem",
+              fontWeight: "700",
+              position: "relative",
+              scrollMarginTop: "4rem",
+              a: {
+                textDecoration: "none",
+                fontWeight: "inherit",
+              },
+            },
+            h1: {
+              fontSize: "2.5rem",
+              fontWeight: "800",
+            },
+            h2: {
+              fontSize: "2rem",
+              fontWeight: "700",
+            },
+            h3: {
+              fontSize: "1.5rem",
+              fontWeight: "600",
+            },
+            h4: {
+              fontSize: "1.25rem",
+              fontWeight: "600",
+            },
+            code: {
+              backgroundColor: "hsl(var(--code-bg))",
+              color: "hsl(var(--code-fg))",
+              padding: "0.2rem 0.4rem",
+              borderRadius: "0.25rem",
+              fontFamily: '"Fira Code", monospace',
+              fontSize: "0.9em",
+              fontWeight: "500",
+              border: "none",
+            },
+            pre: {
+              backgroundColor: "hsl(var(--code-bg)) !important", // !important でデフォルトをオーバーライド
+              color: "hsl(var(--code-fg))",
+              overflow: "auto",
+              borderRadius: "var(--radius)",
+              padding: "1.5rem",
+              margin: "1.5rem 0",
+              code: {
+                backgroundColor: "transparent",
+                padding: "0",
+                borderRadius: "0",
+                color: "inherit",
+                fontSize: "0.9em",
+                fontWeight: "normal",
+              },
+            },
+            blockquote: {
+              borderLeftColor: "hsl(var(--blockquote-border, var(--border)))",
+              backgroundColor: "hsl(var(--blockquote-bg, var(--muted)))",
+              borderRadius: "var(--radius)",
+              padding: "1rem 1.5rem",
+              fontStyle: "normal",
+              p: {
+                marginTop: "0.5rem",
+                marginBottom: "0.5rem",
+              },
+            },
+            table: {
+              width: "100%",
+              tableLayout: "auto",
+              borderCollapse: "collapse",
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
+              thead: {
+                backgroundColor: "hsl(var(--muted))",
+                th: {
+                  fontWeight: "600",
+                  padding: "0.75rem",
+                  verticalAlign: "bottom",
+                  textAlign: "left",
+                },
+              },
+              tbody: {
+                tr: {
+                  borderBottom: "1px solid hsl(var(--border))",
+                  td: {
+                    padding: "0.75rem",
+                    verticalAlign: "middle",
+                  },
+                },
+              },
+            },
+            hr: {
+              borderColor: "hsl(var(--border))",
+              margin: "2rem 0",
+            },
+            img: {
+              borderRadius: "var(--radius)",
+              margin: "1.5rem 0",
+            },
+            "ol, ul": {
+              paddingLeft: "1.5rem",
+              marginBottom: "1.5rem",
+              li: {
+                marginBottom: "0.5rem",
+              },
+            },
+            figure: {
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
+              figcaption: {
+                textAlign: "center",
+                fontSize: "0.9rem",
+                color: "hsl(var(--muted-foreground))",
+                marginTop: "0.5rem",
+              },
+            },
+            picture: {
+              display: "flex",
+              justifyContent: "center",
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [animatePlugin, typographyPlugin],

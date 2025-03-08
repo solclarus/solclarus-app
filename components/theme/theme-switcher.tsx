@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { themes } from "@/config/themes";
+import { THEMES } from "@/config/themes";
 import { type Locale } from "@/i18n/request";
 import { useLocale } from "next-intl";
 import { useTheme } from "next-themes";
@@ -21,9 +21,9 @@ export function ThemeSwitcher() {
   useEffect(() => setMounted(true), []);
 
   function getCurrentThemeIcon() {
-    const currentTheme = themes.find((t) => t.id === theme) ?? themes[0];
+    const currentTheme = THEMES.find((t) => t.id === theme) ?? THEMES[0];
     const Icon = currentTheme!.icon;
-    return <Icon className={currentTheme!.className} />;
+    return <Icon />;
   }
 
   if (!mounted) return null;
@@ -36,13 +36,13 @@ export function ThemeSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="*:cursor-pointer">
-        {themes.map((item) => (
+        {THEMES.map((item) => (
           <DropdownMenuItem
             key={item.id}
             disabled={theme == item.id}
             onClick={() => setTheme(item.id)}
           >
-            <item.icon className={item.className} />
+            <item.icon />
             {item.label[locale]}
           </DropdownMenuItem>
         ))}

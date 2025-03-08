@@ -1,0 +1,41 @@
+/* Ruby Crater テーマ */
+html[data-theme="ruby-crater"] {
+  /* カラーパレット
+     * #1a1212 - hsl(0, 10%, 15%) - 暗いグレー（赤み）
+     * #261a1a - hsl(0, 15%, 20%) - 暗い赤褐色グレー
+     * #3d2929 - hsl(0, 20%, 25%) - 中間の赤褐色グレー
+     * #8b2121 - hsl(0, 62%, 34%) - ルビーの深い赤
+     * #c01c1c - hsl(0, 74%, 43%) - 明るいルビー赤
+     * #e63939 - hsl(0, 77%, 56%) - 鮮やかなルビー
+     * #f26d6d - hsl(0, 83%, 69%) - 淡いルビー
+     * #ffc3c3 - hsl(0, 100%, 88%) - 最も明るいルビー調
+   */
+
+  --background: 0 10% 15%; /* 暗いグレー（赤み） */
+  --foreground: 0 10% 95%; /* 白みがかったグレー */
+
+  --card: 0 15% 20%; /* 暗い赤褐色グレー */
+  --card-foreground: 0 10% 95%;
+
+  --popover: 0 15% 20%;
+  --popover-foreground: 0 10% 95%;
+
+  --primary: 0 74% 43%; /* 明るいルビー赤 */
+  --primary-foreground: 0 10% 98%;
+
+  --secondary: 0 62% 34%; /* ルビーの深い赤 */
+  --secondary-foreground: 0 10% 98%;
+
+  --muted: 0 15% 25%;
+  --muted-foreground: 0 10% 70%;
+
+  --accent: 0 77% 56%; /* 鮮やかなルビー */
+  --accent-foreground: 0 10% 98%;
+
+  --destructive: 0 85% 45%;
+  --destructive-foreground: 0 10% 98%;
+
+  --border: 0 20% 25%;
+  --input: 0 20% 25%;
+  --ring: 0 74% 43%;
+}
