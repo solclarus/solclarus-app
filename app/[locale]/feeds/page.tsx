@@ -1,3 +1,5 @@
+"use client";
+
 import { FeedLoading } from "@/components/feed-loading";
 import { FeedTabs } from "@/components/feed-tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
