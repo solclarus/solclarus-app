@@ -1,29 +1,17 @@
-import { type NextConfig } from "next";
-
-import "./env";
-
+import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import createNextIntlPlugin from "next-intl/plugin";
-
-import { env } from "./env";
 
 const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: `${env.NEXT_PUBLIC_NEWT_SPACE_UID}.assets.newt.so/v1`,
-      },
-    ],
+    remotePatterns: [],
   },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-});
+const withMDX = createMDX({});
 
 export default withNextIntl(withMDX(nextConfig));
