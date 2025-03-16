@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FeedLogo } from "@/components/feed-logo";
+import { FeedLogo } from "@/components/feeds/feed-logo";
 import { format } from "date-fns";
 import { Calendar } from "lucide-react";
 
@@ -23,7 +23,7 @@ export function FeedItemCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block h-full rounded-lg border border-card p-4 transition-all hover:border-primary hover:bg-card hover:shadow-lg"
+      className="group block h-full rounded-lg border p-4 transition-all hover:bg-card hover:shadow-lg"
     >
       <p className="mb-2 flex items-center gap-1 text-xs text-muted-foreground">
         <Calendar className="h-3 w-3" />

@@ -1,44 +1,14 @@
 "use client";
 
+import type { Feed, FeedItem, FeedSource } from "@/types/feed";
 import { useEffect, useState } from "react";
-import { FEEDS } from "@/config/feeds";
-
-// 型定義
-type FeedSource = {
-  id: string;
-  title: string;
-  url: string;
-};
-
-type FeedItem = {
-  title: string;
-  link: string;
-  pubDate: string;
-};
+import { FEED_SOURCES } from "@/config/feeds";
 
 type FeedAPIResponse = {
-  title: string;
   items: FeedItem[];
 };
 
-export type Feed = {
-  id: string;
-  title: string;
-  url: string;
-  items: FeedItem[];
-};
-
-type UseFeedsResult = {
-  feeds: Feed[];
-  loading: boolean;
-  error: string | null;
-};
-
-/**
- * RSSフィードを取得するためのカスタムフック
- * @returns {UseFeedsResult} フィード、ローディング状態、エラー情報
- */
-export function useFeeds(): UseFeedsResult {
+export function useFeeds() {
   const [feeds, setFeeds] = useState<Feed[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -48,11 +18,11 @@ export function useFeeds(): UseFeedsResult {
       setLoading(true);
 
       try {
-        const feedPromises: Promise<Feed>[] = FEEDS.map(
+        const feedPromises = FEED_SOURCES.map(
           async (feedSource: FeedSource) => {
             try {
               const response = await fetch(
-                `/api?url=${encodeURIComponent(feedSource.url)}`,
+                `/api/rss?url=${encodeURIComponent(feedSource.url)}`,
               );
 
               if (!response.ok) {
@@ -69,6 +39,7 @@ export function useFeeds(): UseFeedsResult {
               }
 
               const data = (await response.json()) as FeedAPIResponse;
+
               return {
                 id: feedSource.id,
                 title: feedSource.title,

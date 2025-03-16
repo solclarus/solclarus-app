@@ -10,12 +10,12 @@ import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import { useLocale } from "next-intl";
 
-type IslandMenuButtonProps = {
+type Props = {
   href: string;
   icon: ReactNode;
 };
 
-export function IslandMenuButton({ href, icon }: IslandMenuButtonProps) {
+export function FloatingMenuItem({ href, icon }: Props) {
   const pathname = usePathname();
   const locale = useLocale() as Locale;
   const IconSlot = Slot as LucideIcon;

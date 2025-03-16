@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { type Locale } from "@/i18n/request";
 
 export type ThemeId =
   | "amber-dune"
@@ -9,6 +10,6 @@ export type ThemeId =
 
 export type Theme = {
   id: ThemeId;
-  label: { ja: string; en: string };
+  label: Record<Locale, string>;
   icon: LucideIcon;
 };

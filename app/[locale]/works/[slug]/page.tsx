@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
-import { WorkLayout } from "@/components/work-layout";
+import { WorkLayout } from "@/components/works/work-layout";
 import { getWork } from "@/lib/work";
 
 type Props = {
@@ -23,7 +23,7 @@ export default async function WorkDetailPage({ params }: Props) {
     const { default: Content, metadata } = work;
 
     return (
-      <WorkLayout metadata={metadata!}>
+      <WorkLayout metadata={metadata} locale={locale}>
         <Content />
       </WorkLayout>
     );

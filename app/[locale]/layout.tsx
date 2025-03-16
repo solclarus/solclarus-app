@@ -4,8 +4,8 @@ import "@/styles/globals.css";
 
 import type { Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/footer";
-import { IslandMenu } from "@/components/island-menu";
+import { FloatingMenu } from "@/components/common/floating-menu";
+import { Footer } from "@/components/common/footer";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { config } from "@/config/app";
 import { routing } from "@/i18n/routing";
@@ -17,17 +17,14 @@ export const metadata: Metadata = {
   description: config.description,
 };
 
-type LocaleLayoutProps = Readonly<{
+type Props = Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }>;
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: LocaleLayoutProps) {
-  const locale = (await params).locale;
-  if (!routing.locales.includes(locale as Locale)) {
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+  if (!routing.locales.includes(locale)) {
     notFound();
   }
 
@@ -40,7 +37,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages}>
             <div className="min-h-dvh">
               {children}
-              <IslandMenu />
+              <FloatingMenu />
               <Footer />
             </div>
           </NextIntlClientProvider>

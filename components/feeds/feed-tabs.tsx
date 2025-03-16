@@ -2,8 +2,8 @@
 
 import type { Feed } from "@/types/feed";
 import { useState } from "react";
-import { FeedItemCard } from "@/components/feed-item-card";
-import { FeedLogo } from "@/components/feed-logo";
+import { FeedItemCard } from "@/components/feeds/feed-item-card";
+import { FeedLogo } from "@/components/feeds/feed-logo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getAllItems } from "@/lib/feed";
@@ -15,13 +15,14 @@ type Props = {
 export function FeedTabs({ feeds }: Props) {
   const [activeTab, setActiveTab] = useState("all");
   const allItems = getAllItems(feeds);
+
   return (
     <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab}>
       <TabsList className="mb-4">
         <TabsTrigger value="all">All</TabsTrigger>
-        {feeds.map((feed, index) => (
+        {feeds.map((feed, i) => (
           <TabsTrigger
-            key={index}
+            key={i}
             value={feed.url}
             className="flex items-center gap-1"
           >
@@ -33,9 +34,9 @@ export function FeedTabs({ feeds }: Props) {
       <TabsContent value="all">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {allItems.length > 0 ? (
-            allItems.map((item, index) => (
+            allItems.map((item, i) => (
               <FeedItemCard
-                key={index}
+                key={i}
                 title={item.title}
                 link={item.link}
                 pubDate={item.pubDate}
@@ -52,8 +53,8 @@ export function FeedTabs({ feeds }: Props) {
           )}
         </div>
       </TabsContent>
-      {feeds.map((feed, index) => (
-        <TabsContent key={index} value={feed.url}>
+      {feeds.map((feed, i) => (
+        <TabsContent key={i} value={feed.url}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {feed.items.length > 0 ? (
               feed.items.map((item, index) => (
