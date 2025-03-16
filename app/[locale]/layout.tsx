@@ -4,17 +4,17 @@ import "@/styles/globals.css";
 
 import type { Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
-import { appConfig } from "@/app.config";
 import { Footer } from "@/components/footer";
 import { IslandMenu } from "@/components/island-menu";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { config } from "@/config/app";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: appConfig.app,
-  description: appConfig.description,
+  title: config.app,
+  description: config.description,
 };
 
 type LocaleLayoutProps = Readonly<{

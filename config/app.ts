@@ -1,5 +1,5 @@
-export const appConfig = {
-  app: `SOLCLARUS App`,
+export const config = {
+  app: `solclarus`,
   icon: "/icon.jpg",
   description: "",
   author: "solclarus",

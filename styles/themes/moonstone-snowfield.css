@@ -1,0 +1,41 @@
+/* Moonstone Snowfield テーマ */
+html[data-theme="moonstone-snowfield"] {
+  /* カラーパレット
+     * #f7f9ff - hsl(228, 100%, 98%) - 月光に照らされた雪の白さ
+     * #e6eaf7 - hsl(228, 40%, 94%) - 薄い月長石色
+     * #d2d8ef - hsl(228, 45%, 88%) - 明るい月長石色
+     * #b3bce0 - hsl(228, 40%, 79%) - 柔らかな青白色
+     * #8a96cb - hsl(228, 40%, 67%) - 鮮やかな月長石色
+     * #6876b4 - hsl(228, 35%, 55%) - 深い月長石色
+     * #4a5798 - hsl(228, 35%, 44%) - 濃い青白色
+     * #2c376a - hsl(228, 40%, 30%) - 暗い月長石の青
+     */
+
+  --background: 228 100% 98%; /* 月光に照らされた雪の白さ */
+  --foreground: 228 40% 30%; /* 暗い月長石の青 */
+
+  --card: 228 40% 94%; /* 薄い月長石色 */
+  --card-foreground: 228 40% 30%;
+
+  --popover: 228 40% 94%;
+  --popover-foreground: 228 40% 30%;
+
+  --primary: 228 35% 55%; /* 深い月長石色 */
+  --primary-foreground: 228 100% 98%;
+
+  --secondary: 228 40% 67%; /* 鮮やかな月長石色 */
+  --secondary-foreground: 228 40% 30%;
+
+  --muted: 228 30% 90%;
+  --muted-foreground: 228 35% 44%;
+
+  --accent: 228 35% 44%; /* 濃い青白色 */
+  --accent-foreground: 228 100% 98%;
+
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 228 100% 98%;
+
+  --border: 228 40% 79%;
+  --input: 228 40% 79%;
+  --ring: 228 35% 55%;
+}

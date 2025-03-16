@@ -10,14 +10,14 @@ type WorkItemProps = {
 };
 
 export function WorkItem({ work, locale }: WorkItemProps) {
-  const { id, title, description, publishedAt } = work;
+  const { slug, title, description, publishedAt } = work;
 
   return (
     <article className="group flex flex-col">
-      <Link href={`/${locale}/work/${id}`} className="block">
+      <Link href={`/${locale}/works/${slug}`} className="block">
         <div className="relative aspect-video overflow-hidden rounded-lg">
           <Image
-            src={`/images/works/${id}.jpg`}
+            src={`/images/works/${slug}.jpg`}
             alt={title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"

@@ -1,0 +1,41 @@
+/* Jade Forest テーマ */
+html[data-theme="jade-forest"] {
+  /* カラーパレット
+     * #f2fff7 - hsl(140, 100%, 97%) - 翡翠の光沢
+     * #daf3e6 - hsl(140, 50%, 90%) - 淡い翡翠色
+     * #b3e6cd - hsl(140, 50%, 80%) - 明るい翡翠色
+     * #80d4ad - hsl(140, 50%, 70%) - 中間の翡翠色
+     * #4cbe8a - hsl(140, 45%, 60%) - 鮮やかな翡翠色
+     * #339970 - hsl(140, 50%, 50%) - 深い翡翠色
+     * #19734d - hsl(140, 65%, 40%) - 濃い翡翠色
+     * #0a5c34 - hsl(140, 80%, 30%) - 翡翠の深み
+     */
+
+  --background: 140 100% 97%; /* 翡翠の光沢 */
+  --foreground: 140 80% 20%; /* 暗い翡翠色 */
+
+  --card: 140 50% 90%; /* 淡い翡翠色 */
+  --card-foreground: 140 80% 20%;
+
+  --popover: 140 50% 90%;
+  --popover-foreground: 140 80% 20%;
+
+  --primary: 140 50% 50%; /* 深い翡翠色 */
+  --primary-foreground: 140 100% 97%;
+
+  --secondary: 140 50% 70%; /* 中間の翡翠色 */
+  --secondary-foreground: 140 80% 20%;
+
+  --muted: 140 30% 93%;
+  --muted-foreground: 140 65% 40%;
+
+  --accent: 140 45% 60%; /* 鮮やかな翡翠色 */
+  --accent-foreground: 140 100% 97%;
+
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 140 100% 97%;
+
+  --border: 140 50% 80%;
+  --input: 140 50% 80%;
+  --ring: 140 50% 50%;
+}
