@@ -1,14 +1,21 @@
+export type Link = {
+  type: string;
+  href: string;
+};
+
 export type Work = {
-  id: string;
+  slug: string;
   title: string;
   description: {
     en: string;
     ja: string;
   };
-  publishedAt: Date;
-  tags: string[];
-  links: {
-    github?: string;
-    live?: string;
+  publishedAt: string;
+  updatedAt: string;
+  tags: {
+    en: string[];
+    ja: string[];
   };
+  image: string;
+  links: Link[];
 };

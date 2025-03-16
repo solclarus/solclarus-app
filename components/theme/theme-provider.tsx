@@ -12,7 +12,7 @@ export function ThemeProvider({
   return (
     <NextThemesProvider
       attribute={"data-theme"}
-      defaultTheme={themeIds[0]}
+      defaultTheme={"sapphire-sky"}
       themes={themeIds}
       enableSystem={false}
     >

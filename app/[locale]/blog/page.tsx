@@ -2,7 +2,7 @@ import { getArticles } from "@/lib/newt";
 
 import { ArticleItem } from "./blog-item";
 
-export default async function Page() {
+export default async function BlogPage() {
   const articles = await getArticles();
 
   return (
