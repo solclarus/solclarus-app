@@ -3,30 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { type Link as LinkType } from "@/types/work";
+import { type Locale } from "@/i18n/request";
+import { type Work } from "@/types/work";
 import { format } from "date-fns";
 import { Calendar } from "lucide-react";
 import { FaAppStore, FaGithub, FaGlobe, FaGooglePlay } from "react-icons/fa";
 
-type Metadata = {
-  slug: string;
-  title: string;
-  publishedAt: string;
-  updatedAt: string;
-  tags: string[];
-  image: string;
-  links: LinkType[];
+type Props = {
+  children: React.ReactNode;
+  metadata: Work;
+  locale: Locale;
 };
 
-export function WorkLayout({
-  children,
-  metadata,
-}: {
-  children: React.ReactNode;
-  metadata: Metadata;
-}) {
+export function WorkLayout({ children, metadata, locale }: Props) {
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto max-w-3xl px-4 py-8">
       <div className="mb-12 overflow-hidden rounded-xl border">
         <Image
           src={metadata.image}
@@ -61,7 +52,7 @@ export function WorkLayout({
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          {metadata.tags?.map((tag: string, index: number) => (
+          {metadata.tags[locale].map((tag: string, index: number) => (
             <Badge key={index}>{tag}</Badge>
           ))}
         </div>

@@ -10,3 +10,9 @@ export type Feed = {
   url: string;
   items: FeedItem[];
 };
+
+export type FeedSource = {
+  id: string;
+  title: string;
+  url: string;
+};

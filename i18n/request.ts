@@ -1,7 +1,6 @@
 import type { AbstractIntlMessages } from "next-intl";
+import { routing } from "@/i18n/routing";
 import { getRequestConfig } from "next-intl/server";
-
-import { routing } from "./routing";
 
 export type Locale = "en" | "ja";
 

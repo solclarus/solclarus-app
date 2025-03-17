@@ -20,28 +20,16 @@ export async function getWorks() {
 
 export async function getWork(locale: Locale, slug: string) {
   try {
-    const work = (await import(`@/content/${slug}/${locale}.mdx`)) as MDXModule;
-    const metadata = getLocalizedProjectMetadata(locale, slug);
+    const content = (await import(
+      `@/content/${slug}/${locale}.mdx`
+    )) as MDXModule;
+    const metadata = WORKS.find((work) => work.slug === slug);
 
-    return { ...work, metadata };
+    if (!content || !metadata) return;
+
+    return { ...content, metadata };
   } catch (error) {
     console.error(`Error loading work "${slug}": ${locale}`, error);
     return null;
   }
-}
-
-export function getLocalizedProjectMetadata(locale: Locale, slug: string) {
-  const work = WORKS.find((work) => work.slug === slug);
-
-  if (!work) return null;
-
-  return {
-    slug: work.slug,
-    title: work.title,
-    publishedAt: work.publishedAt,
-    updatedAt: work.updatedAt,
-    tags: work.tags[locale],
-    image: work.image,
-    links: work.links,
-  };
 }

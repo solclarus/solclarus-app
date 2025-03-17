@@ -1,4 +1,6 @@
-export const FEEDS = [
+import { type FeedSource } from "@/types/feed";
+
+export const FEED_SOURCES: FeedSource[] = [
   {
     id: "note",
     title: "note",

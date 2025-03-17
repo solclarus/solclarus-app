@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
 
-type WorkItemProps = {
+type Props = {
   work: Work;
   locale: Locale;
 };
 
-export function WorkItem({ work, locale }: WorkItemProps) {
+export function WorkItem({ work, locale }: Props) {
   const { slug, title, description, publishedAt } = work;
 
   return (

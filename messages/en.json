@@ -1,5 +1,8 @@
 {
   "Home": {
     "greeting": "Hello, I'm <name>solclarus</name>. I'm a software engineer based in Tokyo. I was born and raised in Kobe."
+  },
+  "Feed": {
+    "title": "RSS Feed Reader"
   }
 }

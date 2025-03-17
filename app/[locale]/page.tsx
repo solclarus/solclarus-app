@@ -8,7 +8,7 @@ export default function HomePage() {
   const t = useTranslations("Home");
 
   return (
-    <main className="mx-auto flex max-w-2xl flex-col items-center px-4 pt-10 md:items-start md:px-0">
+    <main className="mx-auto flex max-w-3xl flex-col items-center px-4 pt-10 md:items-start md:px-0">
       <Avatar className="mb-3 size-28 rounded-full border">
         <AvatarImage src={config.icon} alt={config.author} />
         <AvatarFallback>{config.author.toUpperCase().charAt(0)}</AvatarFallback>

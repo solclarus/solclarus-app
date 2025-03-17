@@ -1,5 +1,8 @@
 {
   "Home": {
     "greeting": "こんにちは <name>solclarus</name> です。東京でソフトウェアエンジニアをやっています。神戸出身です。"
+  },
+  "Feed": {
+    "title": "RSS Feed リーダー"
   }
 }

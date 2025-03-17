@@ -1,17 +1,17 @@
-import { WorkItem } from "@/components/work-item";
-import { type Locale } from "@/i18n/request";
+import type { Locale } from "@/i18n/request";
+import { WorkItem } from "@/components/works/work-item";
 import { getWorks } from "@/lib/work";
 
 type Props = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 };
 
 export default async function WorksPage({ params }: Props) {
-  const locale = (await params).locale as Locale;
+  const { locale } = await params;
   const works = await getWorks();
 
   return (
-    <main className="mx-auto mt-40 max-w-xl px-4 md:px-0">
+    <main className="mx-auto mt-32 max-w-3xl px-4 md:px-0">
       <h1 className="mb-8 text-3xl font-bold">Works</h1>
       <div className="grid grid-cols-1 gap-6">
         {works.map((work) => (
