@@ -12,6 +12,5 @@ export type Work = {
   publishedAt: string;
   updatedAt: string;
   tags: Record<Locale, string[]>;
-  image: string;
   links: Link[];
 };

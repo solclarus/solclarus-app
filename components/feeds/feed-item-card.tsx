@@ -23,7 +23,7 @@ export function FeedItemCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block h-full rounded-lg border p-4 transition-all hover:bg-card hover:shadow-lg"
+      className="group block h-full rounded-lg border p-4 shadow-lg backdrop-blur-sm transition-all hover:bg-card"
     >
       <p className="mb-2 flex items-center gap-1 text-xs text-muted-foreground">
         <Calendar className="h-3 w-3" />

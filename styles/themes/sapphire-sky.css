@@ -1,41 +1,198 @@
-/* Sapphire Sky テーマ */
 html[data-theme="sapphire-sky"] {
   /* カラーパレット
-       * #0d1940 - hsl(230, 70%, 15%) - 深いサファイア色の夜空
-       * #182a61 - hsl(230, 60%, 24%) - 濃いサファイアブルー
-       * #273c80 - hsl(230, 55%, 33%) - 深いサファイア色
-       * #3650a0 - hsl(230, 50%, 42%) - 明るいサファイア
-       * #4b64b5 - hsl(230, 45%, 50%) - サファイアブルー
-       * #6c7fc5 - hsl(230, 40%, 60%) - 鮮やかなサファイア
-       * #8d9bd5 - hsl(230, 35%, 70%) - 淡いサファイア
-       * #c0c7eb - hsl(230, 50%, 85%) - 最も明るいサファイア
-       */
+    * #0a1535 - hsl(230, 75%, 12%) - 最も深いサファイア色の夜空
+    * #112048 - hsl(230, 70%, 18%) - 深いサファイア色の夜空
+    * #182a61 - hsl(230, 60%, 24%) - 濃いサファイアブルー
+    * #243a82 - hsl(230, 55%, 33%) - 深いサファイア色
+    * #314da3 - hsl(230, 55%, 42%) - 明るいサファイア
+    * #4764c7 - hsl(230, 60%, 53%) - サファイアブルー
+    * #6c7fc5 - hsl(230, 40%, 60%) - 鮮やかなサファイア
+    * #8d9bd5 - hsl(230, 35%, 70%) - 淡いサファイア
+    * #c0c7eb - hsl(230, 50%, 85%) - 最も明るいサファイア
+    * #ebeeff - hsl(230, 100%, 96%) - サファイア白 
+  */
 
-  --background: 230 70% 15%; /* 深いサファイア色の夜空 */
-  --foreground: 230 50% 90%; /* やや明るいサファイア */
+  --background: 230 75% 12%;
+  --foreground: 230 100% 96%;
 
-  --card: 230 60% 24%; /* 濃いサファイアブルー */
-  --card-foreground: 230 50% 95%; /* さらに明るいサファイア */
+  --card: 230 60% 24%;
+  --card-foreground: 230 50% 90%;
 
   --popover: 230 60% 24%;
-  --popover-foreground: 230 50% 95%;
+  --popover-foreground: 230 50% 90%;
 
-  --primary: 230 50% 42%; /* 明るいサファイア */
-  --primary-foreground: 230 50% 95%; /* 白に近い色 */
+  --primary: 230 55% 42%;
+  --primary-foreground: 230 100% 96%;
 
-  --secondary: 230 45% 50%; /* サファイアブルー */
-  --secondary-foreground: 230 50% 95%; /* 白に近い色 */
+  --secondary: 230 60% 53%;
+  --secondary-foreground: 230 100% 96%;
 
-  --muted: 230 40% 28%; /* より暗い色 */
-  --muted-foreground: 230 35% 75%; /* より明るい色 */
+  --muted: 230 55% 28%;
+  --muted-foreground: 230 35% 80%;
 
-  --accent: 230 40% 60%; /* 鮮やかなサファイア */
-  --accent-foreground: 230 50% 95%; /* 白に近い色 */
+  --accent: 230 40% 60%;
+  --accent-foreground: 230 75% 12%;
 
   --destructive: 0 70% 50%;
-  --destructive-foreground: 230 50% 95%;
+  --destructive-foreground: 230 100% 96%;
 
-  --border: 230 45% 30%; /* より暗い境界線 */
-  --input: 230 45% 40%; /* やや明るい入力色 */
-  --ring: 230 50% 50%; /* より明るいリング */
+  --border: 230 45% 30%;
+  --input: 230 45% 35%;
+  --ring: 230 60% 53%;
+}
+
+/* 星雲のような宇宙背景 - 修正版 */
+html[data-theme="sapphire-sky"] body {
+  background: 
+    /* 深い宇宙の背景 */ linear-gradient(
+    to bottom,
+    hsl(230, 75%, 8%) 0%,
+    hsl(230, 70%, 12%) 100%
+  );
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* 星雲エフェクト - 修正版 */
+html[data-theme="sapphire-sky"] body::before {
+  content: "";
+  position: fixed; /* absoluteからfixedに変更 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    /* 主要な星雲 */
+    radial-gradient(
+      ellipse at 30% 40%,
+      hsla(235, 80%, 40%, 0.2) 0%,
+      hsla(235, 80%, 40%, 0.1) 30%,
+      transparent 60%
+    ),
+    /* 二次的な星雲 */
+      radial-gradient(
+        ellipse at 70% 60%,
+        hsla(220, 80%, 45%, 0.15) 0%,
+        hsla(220, 80%, 45%, 0.05) 40%,
+        transparent 70%
+      ),
+    /* 紫がかった小さな星雲 */
+      radial-gradient(
+        circle at 20% 20%,
+        hsla(250, 70%, 50%, 0.1) 0%,
+        transparent 40%
+      ),
+    /* 青みがかった星雲 */
+      radial-gradient(
+        circle at 80% 30%,
+        hsla(210, 90%, 50%, 0.12) 0%,
+        transparent 50%
+      ),
+    /* 中央の明るい部分 */
+      radial-gradient(
+        circle at center,
+        hsla(230, 100%, 60%, 0.07) 0%,
+        transparent 45%
+      );
+  pointer-events: none; /* マウスイベントを通過させる */
+  z-index: -1;
+}
+
+/* 星空効果（小さな点々） - 修正版 */
+html[data-theme="sapphire-sky"] body::after {
+  content: "";
+  position: fixed; /* absoluteからfixedに変更 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(
+      1px 1px at 20% 30%,
+      hsla(0, 0%, 100%, 0.8) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 40% 70%,
+      hsla(0, 0%, 100%, 0.7) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 50% 10%,
+      hsla(0, 0%, 100%, 0.6) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 30% 90%,
+      hsla(0, 0%, 100%, 0.8) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 70% 40%,
+      hsla(0, 0%, 100%, 0.9) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 90% 20%,
+      hsla(0, 0%, 100%, 0.7) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 10% 80%,
+      hsla(0, 0%, 100%, 0.6) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 80% 80%,
+      hsla(0, 0%, 100%, 0.8) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 60% 60%,
+      hsla(0, 0%, 100%, 0.8) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 35% 50%,
+      hsla(0, 0%, 100%, 0.9) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1.5px 1.5px at 65% 25%,
+      hsla(0, 0%, 100%, 0.7) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 45% 5%,
+      hsla(0, 0%, 100%, 1) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 85% 75%,
+      hsla(0, 0%, 100%, 0.9) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      2px 2px at 15% 40%,
+      hsla(0, 0%, 100%, 0.8) 0%,
+      transparent 100%
+    );
+  background-size: 100% 100%;
+  opacity: 0.5;
+  pointer-events: none; /* マウスイベントを通過させる */
+  z-index: -1;
+}
+
+/* サファイアの星雲模様 - 修正版 */
+html[data-theme="sapphire-sky"] .nebula-overlay {
+  position: fixed; /* absoluteからfixedに変更 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='nebula' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01 0.005' numOctaves='5' seed='3' stitchTiles='stitch' result='noise'/%3E%3CfeColorMatrix in='noise' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0' result='coloredNoise'/%3E%3CfeComponentTransfer in='coloredNoise' result='tinted'%3E%3CfeFuncR type='table' tableValues='0.2 0.2 0.5 0.7'/%3E%3CfeFuncG type='table' tableValues='0.2 0.2 0.5 0.8'/%3E%3CfeFuncB type='table' tableValues='0.4 0.7 0.9 1'/%3E%3C/feComponentTransfer%3E%3CfeGaussianBlur in='tinted' stdDeviation='15' result='blur'/%3E%3CfeBlend in='SourceGraphic' in2='blur' mode='screen'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' filter='url(%23nebula)' opacity='0.15'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none; /* マウスイベントを通過させる */
+  z-index: 0;
+  mix-blend-mode: screen;
 }

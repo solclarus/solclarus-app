@@ -1,35 +1,34 @@
-/* Ruby Crater テーマ */
 html[data-theme="ruby-crater"] {
   /* カラーパレット
-     * #1a1212 - hsl(0, 10%, 15%) - 暗いグレー（赤み）
-     * #261a1a - hsl(0, 15%, 20%) - 暗い赤褐色グレー
-     * #3d2929 - hsl(0, 20%, 25%) - 中間の赤褐色グレー
-     * #8b2121 - hsl(0, 62%, 34%) - ルビーの深い赤
-     * #c01c1c - hsl(0, 74%, 43%) - 明るいルビー赤
-     * #e63939 - hsl(0, 77%, 56%) - 鮮やかなルビー
-     * #f26d6d - hsl(0, 83%, 69%) - 淡いルビー
-     * #ffc3c3 - hsl(0, 100%, 88%) - 最も明るいルビー調
-   */
+    * #1a1212 - hsl(0, 10%, 12%) - 暗いグレー（赤み）
+    * #261a1a - hsl(0, 15%, 20%) - 暗い赤褐色グレー
+    * #3d2929 - hsl(0, 20%, 25%) - 中間の赤褐色グレー
+    * 溶岩流カラー
+    * #ff7b00 - hsl(25, 100%, 50%) - 明るいオレンジ
+    * #ff5e00 - hsl(20, 100%, 50%) - 鮮やかなオレンジ
+    * #e53d00 - hsl(15, 100%, 45%) - 深いオレンジ
+    * #b33000 - hsl(12, 100%, 35%) - 暗いオレンジ
+  */
 
-  --background: 0 10% 15%; /* 暗いグレー（赤み） */
-  --foreground: 0 10% 95%; /* 白みがかったグレー */
+  --background: 0 10% 12%;
+  --foreground: 0 10% 95%;
 
-  --card: 0 15% 20%; /* 暗い赤褐色グレー */
+  --card: 0 15% 20%;
   --card-foreground: 0 10% 95%;
 
   --popover: 0 15% 20%;
   --popover-foreground: 0 10% 95%;
 
-  --primary: 0 74% 43%; /* 明るいルビー赤 */
+  --primary: 15 100% 45%;
   --primary-foreground: 0 10% 98%;
 
-  --secondary: 0 62% 34%; /* ルビーの深い赤 */
+  --secondary: 12 100% 35%;
   --secondary-foreground: 0 10% 98%;
 
   --muted: 0 15% 25%;
   --muted-foreground: 0 10% 70%;
 
-  --accent: 0 77% 56%; /* 鮮やかなルビー */
+  --accent: 25 100% 50%;
   --accent-foreground: 0 10% 98%;
 
   --destructive: 0 85% 45%;
@@ -37,5 +36,28 @@ html[data-theme="ruby-crater"] {
 
   --border: 0 20% 25%;
   --input: 0 20% 25%;
-  --ring: 0 74% 43%;
+  --ring: 20 100% 50%;
+}
+
+/* より細い溶岩流のグラデーション背景 */
+html[data-theme="ruby-crater"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 30%,
+    hsla(20, 90%, 35%, 0.15) 35%,
+    hsla(25, 90%, 45%, 0.2) 40%,
+    hsla(20, 90%, 35%, 0.15) 45%,
+    transparent 50%,
+    transparent 100%
+  );
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: -1;
 }

@@ -11,7 +11,7 @@ export default async function WorksPage({ params }: Props) {
   const works = await getWorks();
 
   return (
-    <main className="mx-auto mt-32 max-w-3xl px-4 md:px-0">
+    <main className="mx-auto max-w-3xl px-4 pt-20 md:px-0">
       <h1 className="mb-8 text-3xl font-bold">Works</h1>
       <div className="grid grid-cols-1 gap-6">
         {works.map((work) => (
