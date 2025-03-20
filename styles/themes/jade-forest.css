@@ -1,41 +1,70 @@
-/* Jade Forest テーマ */
 html[data-theme="jade-forest"] {
   /* カラーパレット
-     * #f2fff7 - hsl(140, 100%, 97%) - 翡翠の光沢
-     * #daf3e6 - hsl(140, 50%, 90%) - 淡い翡翠色
-     * #b3e6cd - hsl(140, 50%, 80%) - 明るい翡翠色
-     * #80d4ad - hsl(140, 50%, 70%) - 中間の翡翠色
-     * #4cbe8a - hsl(140, 45%, 60%) - 鮮やかな翡翠色
-     * #339970 - hsl(140, 50%, 50%) - 深い翡翠色
-     * #19734d - hsl(140, 65%, 40%) - 濃い翡翠色
-     * #0a5c34 - hsl(140, 80%, 30%) - 翡翠の深み
-     */
+    * #0a2e15 - hsl(140, 95%, 13%) - 最も暗い翡翠色
+    * #19613a - hsl(140, 85%, 22%) - 翡翠の深み
+    * #1c8c56 - hsl(140, 70%, 35%) - 濃い翡翠
+    * #33cc80 - hsl(140, 50%, 60%) - 鮮やかな翡翠色
+    * #9dedbd - hsl(142, 75%, 75%) - 明るい翡翠色
+    * #f3fff8 - hsl(140, 100%, 98%) - 翡翠の光沢
+    * #33cc99 - hsl(150, 75%, 60%) - アクセントグリーン（色相調整）
+  */
 
-  --background: 140 100% 97%; /* 翡翠の光沢 */
-  --foreground: 140 80% 20%; /* 暗い翡翠色 */
+  --background: 140 95% 13%;
+  --foreground: 140 100% 98%;
 
-  --card: 140 50% 90%; /* 淡い翡翠色 */
-  --card-foreground: 140 80% 20%;
+  --card: 140 85% 22%;
+  --card-foreground: 140 100% 98%;
 
-  --popover: 140 50% 90%;
-  --popover-foreground: 140 80% 20%;
+  --popover: 140 85% 22%;
+  --popover-foreground: 140 100% 98%;
 
-  --primary: 140 50% 50%; /* 深い翡翠色 */
-  --primary-foreground: 140 100% 97%;
+  --primary: 140 50% 60%;
+  --primary-foreground: 140 100% 98%;
 
-  --secondary: 140 50% 70%; /* 中間の翡翠色 */
-  --secondary-foreground: 140 80% 20%;
+  --secondary: 142 75% 75%;
+  --secondary-foreground: 140 95% 13%;
 
-  --muted: 140 30% 93%;
-  --muted-foreground: 140 65% 40%;
+  --muted: 140 70% 35%;
+  --muted-foreground: 140 60% 92%;
 
-  --accent: 140 45% 60%; /* 鮮やかな翡翠色 */
-  --accent-foreground: 140 100% 97%;
+  --accent: 150 75% 60%;
+  --accent-foreground: 140 100% 98%;
 
-  --destructive: 0 70% 50%;
-  --destructive-foreground: 140 100% 97%;
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 140 100% 98%;
 
-  --border: 140 50% 80%;
-  --input: 140 50% 80%;
-  --ring: 140 50% 50%;
+  --border: 140 60% 45%;
+  --input: 140 60% 45%;
+  --ring: 150 75% 60%;
+}
+
+/* 基本グラデーション背景 - コントラスト向上 */
+html[data-theme="jade-forest"] body {
+  background: 
+    /* 基本となる深いグラデーション - より鮮明に */
+    linear-gradient(
+      135deg,
+      hsl(150, 95%, 16%) 0%,
+      hsl(145, 95%, 12%) 25%,
+      hsl(140, 95%, 10%) 50%,
+      hsl(145, 95%, 12%) 75%,
+      hsl(150, 95%, 16%) 100%
+    ),
+    /* 上部に光沢感を加える - より強く */
+      radial-gradient(
+        circle at top right,
+        hsla(140, 100%, 40%, 0.5) 0%,
+        transparent 45%
+      ),
+    /* 下部に深みを加える - より強く */
+      radial-gradient(
+        circle at bottom left,
+        hsla(160, 100%, 15%, 0.6) 0%,
+        transparent 50%
+      );
+  background-blend-mode: normal, overlay, multiply;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }

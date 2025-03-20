@@ -2,8 +2,8 @@ import type { Work } from "@/types/work";
 
 export const WORKS: Work[] = [
   {
-    slug: "solclarus-app",
-    title: "solclarus",
+    slug: "portfolio-site",
+    title: "Portfolio site",
     description: {
       en: "Personal portfolio website",
       ja: "個人ポートフォリオサイト",
@@ -14,7 +14,6 @@ export const WORKS: Work[] = [
       en: ["Web Development", "Frontend", "Portfolio"],
       ja: ["ウェブ開発", "フロントエンド", "ポートフォリオ"],
     },
-    image: "/images/works/solclarus-app.jpg",
     links: [
       {
         type: "github",
@@ -36,7 +35,6 @@ export const WORKS: Work[] = [
       en: ["Web Development", "E-commerce", "Stripe"],
       ja: ["ウェブ開発", "Eコマース", "Stripe"],
     },
-    image: "/images/works/gowanted.jpg",
     links: [
       {
         type: "github",
@@ -58,7 +56,6 @@ export const WORKS: Work[] = [
       en: ["Web Development", "CMS", "Blog"],
       ja: ["ウェブ開発", "CMS", "ブログ"],
     },
-    image: "/images/works/cinemento.jpg",
     links: [
       {
         type: "github",

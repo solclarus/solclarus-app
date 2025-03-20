@@ -20,7 +20,7 @@ export function WorkLayout({ children, metadata, locale }: Props) {
     <div className="mx-auto max-w-3xl px-4 py-8">
       <div className="mb-12 overflow-hidden rounded-xl border">
         <Image
-          src={metadata.image}
+          src={`/images/works/${metadata.slug}.jpg`}
           alt={metadata.title}
           width={1200}
           height={600}
@@ -33,6 +33,7 @@ export function WorkLayout({ children, metadata, locale }: Props) {
             <h1 className="mb-2 text-4xl font-bold md:text-5xl">
               {metadata.title}
             </h1>
+            <p className="mb-2">{metadata.description[locale]}</p>
             <div className="mb-3 flex items-center gap-2 text-muted-foreground">
               <Calendar className="h-4 w-4" />
               <span>{format(metadata.publishedAt, "yyyy/MM/dd")}</span>
